@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDIOTS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="boot-screen" class="entry-screen">
+        <div id="dos-text-boot" class="dos-text"></div>
+        <div id="win95-boot">
+            <img src="win95boot.webp" alt="Windows 95 Boot Screen">
+            <div id="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div id="boot-message" class="boot-message-text"></div>
+        </div>
+    </div>
+
+    <div id="entry-screen" class="entry-screen">
+        <div id="dos-text" class="dos-text"></div>
+        <div id="quest-log" class="dos-text hidden"></div> <!-- New: Quest log display -->
+        <div id="command-prompt">
+            <span id="prompt-text">C:\></span>
+            <input type="text" id="command-input" autofocus>
+            <span class="blinking-cursor">_</span>
+        </div>
+    </div>
+
+    <div id="desktop" class="hidden">
+        <div id="idiot-assistant">
+            <div id="assistant-message"></div>
+        </div>
+
+        <div id="taskbar">
+            <div id="start-button">
+                <img src="win95start.png" alt="Start"> Start
+            </div>
+            <div id="start-menu" class="start-menu hidden">
+                <div id="find-item" class="start-menu-item">
+                    <img src="win95find.png" alt="Find"> Find <div id="find-input-area" class="input-area hidden"><input type="text" id="find-input"><button id="find-button">Find Now</button><div id="find-result"></div></div>
+                </div>
+                <div id="run-item" class="start-menu-item">
+                    <img src="win95run.png" alt="Run"> Run <div id="run-input-area" class="input-area hidden"><input type="text" id="run-input"><button id="run-button">Run</button></div>
+                </div>
+                <div id="help-item" class="start-menu-item">
+                    <img src="win95help.png" alt="Help"> Help
+                </div>
+                <div id="shutdown-item" class="start-menu-item" id="shutdown">
+                    <img src="win95shutdown.png" alt="Shut Down"> Shut Down...
+                </div>
+            </div>
+            <div id="taskbar-windows"></div>
+            <div id="taskbar-right">
+                <div id="taskbar-time"></div>
+                <div id="sound-icon">🔊</div>
+            </div>
+        </div>
+
+        <div id="idiot-target">
+            <div id="game-status"></div>
+            <button id="play-game-button">Play Game</button>
+        </div>
+
+        <div id="fridge-animation" class="fridge hidden">
+            <pre id="fridge-ascii-art"></pre>
+        </div>
+
+        <div id="wallet-inspector" class="hidden">
+            <h2>Ordinal Wallet Inspector</h2>
+            <input type="text" id="wallet-address-input" placeholder="Enter Wallet Address">
+            <button id="check-wallet-button">Check Wallet</button>
+            <div id="idiot-card">
+                <h3 id="idiot-name"></h3>
+                <p>Ordinal Address: <span id="idiot-ordinal-address"></span></p>
+                <img id="idiot-image" src="" alt="Idiot Image">
+            </div>
+        </div>
+    </div>
+
+    <audio id="startup-sound" src="windows95startup.mp3"></audio>
+    <audio id="click-sound" src="windows95click.mp3"></audio>
+    <audio id="fridge-sound" src="fridge.mp3"></audio>
+    <audio id="error-sound" src="windows95error.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+/* style.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "MS Sans Serif", sans-serif;
+    background-color: #000;
+    margin: 0;
+    overflow: hidden;
+    cursor: default;
+    color: #CCC;
+}
+
+#entry-screen {
+    background-color: #000;
+    color: #00FF00;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    font-family: "Courier New", monospace;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#dos-text, #quest-log {
+    white-space: pre;
+    text-align: left;
+    margin-bottom: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+#quest-log.hidden {
+    display: none;
+}
+
+#command-prompt {
+    display: flex;
+    align-items: center;
+}
+
+#prompt-text {
+    margin-right: 5px;
+}
+
+#command-input {
+    background: none;
+    border: none;
+    color: #00FF00;
+    font-family: "Courier New", monospace;
+    font-size: 1em;
+    outline: none;
+    width: 200px;
+}
+
+#command-input:focus {
+    outline: none;
+}
+
+.blinking-cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+#boot-screen {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+#win95-boot img {
+    display: block;
+    margin: 50px auto 20px;
+    max-width: 90%;
+    height: auto;
+}
+
+#progress-bar {
+    width: 70%;
+    height: 10px;
+    background-color: #333;
+    margin: 20px auto;
+}
+
+#progress-bar .progress {
+    height: 100%;
+    width: 0%;
+    background-color: #0078d7;
+    animation: boot-progress 5s linear forwards;
+}
+
+@keyframes boot-progress {
+    to { width: 100%; }
+}
+
+#boot-message {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #ddd;
+}
+
+#desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('win95bg.webp');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#taskbar {
+    background-color: #C0C0C0;
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #808080;
+    z-index: 1000;
+}
+
+#start-button {
+    background-color: #C0C0C0;
+    color: black;
+    padding: 2px 15px;
+    border: 2px solid #C0C0C0;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+#start-button img {
+    height: 1.2em;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#start-menu {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    background-color: #C0C0C0;
+    border: 2px solid #808080;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    width: 180px;
+    padding: 5px 0;
+}
+
+.start-menu-item {
+    padding: 5px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.start-menu-item img {
+    height: 1.2em;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.start-menu-item:hover {
+    background-color: #000080;
+    color: white;
+}
+
+#taskbar-time, #sound-icon {
+    margin-left: auto;
+    font-size: 0.9em;
+    padding: 5px;
+}
+
+#taskbar-right {
+    display: flex;
+    align-items: center;
+}
+
+#taskbar-windows {
+    display: flex;
+    overflow-x: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.taskbar-window-button {
+    background-color: #C0C0C0;
+    color: black;
+    padding: 2px 10px;
+    border: 2px solid #C0C0C0;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    margin-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.taskbar-window-button.active {
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #fff;
+    border-right-color: #fff;
+}
+
+#find-input-area {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #C0C0C0;
+    border: 2px solid #808080;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+#find-input-area input[type="text"] {
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+#find-button, #run-button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#run-input-area {
+    position: absolute;
+    left: 100%;
+    top: 30px;
+    background-color: #C0C0C0;
+    border: 2px solid #808080;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+#run-input-area input[type="text"] {
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+#idiot-assistant {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(192, 192, 192, 0.8);
+    border: 2px solid #808080;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    padding: 10px;
+    width: 250px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+#assistant-message {
+    margin-bottom: 10px;
+}
+
+#idiot-target {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    color: #00FF00;
+    font-family: "Courier New", monospace;
+    font-size: 0.9em;
+    padding: 20px;
+    border: 2px solid #808080;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    text-align: left;
+    white-space: pre;
+    overflow-y: auto;
+    max-height: 70vh;
+    max-width: 80vw;
+}
+
+#game-status {
+    margin-bottom: 10px;
+}
+
+#play-game-button {
+    background-color: #C0C0C0;
+    color: black;
+    padding: 8px 15px;
+    border: 2px solid #C0C0C0;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    margin: 10px auto 0;
+}
+
+#fridge-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 10px;
+    border: 2px solid #808080;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    font-family: monospace;
+    line-height: 0.9em;
+    white-space: pre;
+    text-align: left;
+    z-index: 1002;
+}
+
+#fridge-ascii-art {
+    color: black;
+}
+
+#wallet-inspector {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #C0C0C0;
+    border: 2px solid #808080;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    z-index: 1003;
+}
+
+#wallet-inspector h2 {
+    margin-top: 0;
+}
+
+#wallet-address-input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#check-wallet-button {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+#idiot-card {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #808080;
+    background-color: #fff;
+    color: black; /* Fixed typo from 'visercolor' */
+}
+
+#idiot-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.player-stat { color: #00FF00; }
+.game-message { color: #CCC; }
+.combat-text { color: #FFFF00; }
+.error-text { color: #FF0000; }
